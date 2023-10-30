@@ -1,0 +1,14 @@
+
+
+* {
+    /* font-family: 'Inter'; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bs-primary: #1E1E1E;
+    --bs-white: #ffffff;
+}
+
