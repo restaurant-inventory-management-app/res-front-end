@@ -1,8 +1,7 @@
 
 import './App.css'
 import MainStock from './pages/MainStock/MainStock';
-import Card from './components/Cards/Card';
-import Branches from './pages/Branches/Branches';
+import SideNav from './components/SideNav/SideNav'
 
 function App() {
 

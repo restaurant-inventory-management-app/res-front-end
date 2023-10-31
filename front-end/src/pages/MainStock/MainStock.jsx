@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Card from "../../components/Cards/Card";
 import CardDisplay from "../../components/Cards/CardDisplay";
+import CardCategory from "../../components/Cards/CardCategory";
 
 const mock = {
   name: "Carrot",
@@ -19,18 +20,17 @@ function MainStock() {
   });
 
   return (
-    <div className="container">
+    <div className="container-lg">
       <h1 className="text-center">Main Stock</h1>
 
       <section className="mt-5 ms-3 row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 " >
         {data ? (
           <>
-          <CardDisplay  data={data} />
-          <CardDisplay  data={data} />
-          <CardDisplay  data={data} />
-          <CardDisplay  data={data} />
-          <CardDisplay  data={data} />
-          <CardDisplay  data={data} />
+          <CardCategory/>
+          <CardDisplay  data={data}/>
+          <Card />
+          <Card />
+          <Card />
           </>
         ) : (
           <Card />
