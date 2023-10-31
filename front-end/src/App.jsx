@@ -1,7 +1,7 @@
 
 import './App.css'
 import MainStock from './pages/MainStock/MainStock';
-import Card from './components/Card/Card';
+import Card from './components/Cards/Card';
 import Branches from './pages/Branches/Branches';
 
 function App() {
@@ -11,9 +11,7 @@ function App() {
     <>
         
          {/* <SideNav /> */}
-         <Card/>
          <MainStock/>
-         <Branches/>
         
         
     
