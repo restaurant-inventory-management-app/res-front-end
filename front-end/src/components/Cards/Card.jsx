@@ -3,10 +3,9 @@ import "./card.css";
 
 export default function Card() {
   return (
-    <div>
-      <div className="card-com">
+      <div className="card-com pl-5" >
         <div className="card-body">
-          <div className="card-add">
+          <div className="card-add my-2" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="50"
@@ -20,14 +19,12 @@ export default function Card() {
               />
             </svg>
           </div>
-          <h5 className="card-title">ingredients</h5>
-          <p className="card-text"></p>
+          <h5 className="card-title mb-4 ">ingredients</h5>
           <div className="d-inline-flex gap-3">
             <Button title={"Add"} color={"white"} icon={'add'}/>
             <Button title={"Delete"} color={"black"} />
           </div>
         </div>
       </div>
-    </div>
   );
 }
