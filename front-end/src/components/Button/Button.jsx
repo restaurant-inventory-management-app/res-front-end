@@ -5,7 +5,7 @@ function Button({ title, fnc, icon, color }) {
   return (
     <div
       className={color === "white" ? "button btn-white" : "button btn-black"}
-      onClick={() => console.log("hello")}
+      onClick={fnc}
     >
       <span>
         {icon === "add" ? (

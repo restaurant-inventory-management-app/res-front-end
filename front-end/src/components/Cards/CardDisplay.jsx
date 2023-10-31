@@ -15,7 +15,7 @@ export default function CardDisplay({data}) {
             <h7 className="card-text">{data.content}</h7>
           </div>
           <div className="d-inline-flex gap-3">
-            <Button title={"Add"} color={"white"} icon={'add'}/>
+            <Button title={"Add"} color={"white"} icon={'add'} fnc={()=>{alert('add')}} />
             <Button title={"Edit"} color={"black"} />
           </div>
         </div>
