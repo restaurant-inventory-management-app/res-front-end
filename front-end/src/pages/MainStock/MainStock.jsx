@@ -20,17 +20,21 @@ function MainStock() {
   });
 
   return (
-    <div className="container-lg">
+    <div className="container-xl">
       <h1 className="text-center">Main Stock</h1>
 
-      <section className="mt-5 ms-3 row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 " >
+      <section className="mt-5 d-flex container-fluid flex-wrap gap-5">
         {data ? (
           <>
-          <CardCategory/>
-          <CardDisplay  data={data}/>
-          <Card />
-          <Card />
-          <Card />
+            <CardCategory />
+            <CardDisplay data={data} />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          
           </>
         ) : (
           <Card />
