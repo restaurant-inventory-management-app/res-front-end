@@ -1,9 +1,3 @@
-.card-com {
-    max-width: 17rem;
-    margin-bottom: 50px;
-
-    
-}
 
 .card-body {
     display: flex;
@@ -15,6 +9,7 @@
     border-radius: 20px;
     background-color: #fff;
     height: 375px;
+    width: 13rem;
 
 
 

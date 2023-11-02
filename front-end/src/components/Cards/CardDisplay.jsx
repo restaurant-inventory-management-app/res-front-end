@@ -12,7 +12,7 @@ export default function CardDisplay({data}) {
           </div>
           <div className="mb-4">
             <h5 className="card-title text-center">{data.name}</h5>
-            <h7 className="card-text">{data.content}</h7>
+            <h6 className="card-text">{data.content}</h6>
           </div>
           <div className="d-inline-flex gap-3">
             <Button title={"Add"} color={"white"} icon={'add'} fnc={()=>{alert('add')}} />
