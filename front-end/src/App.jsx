@@ -6,14 +6,10 @@ import { useState } from "react";
 
 
 function App() {
-  const [collapsed, setCollapsed] = useState(true)
-
-  const handleCollapsed = () => {
-    setCollapsed(!collapsed)
-  }
+ 
   return (
     <>
-      <SideNav collapsed={collapsed} handleCollapsed={handleCollapsed}/>
+      <SideNav />
       <div className="mx-auto"><Outlet/></div>
       
 

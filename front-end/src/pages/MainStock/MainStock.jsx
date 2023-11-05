@@ -23,13 +23,11 @@ function MainStock() {
     <div className="container-xl">
       <h1 className="text-center">Main Stock</h1>
 
-      <section className="mt-5 d-flex container-fluid flex-wrap gap-5">
+      <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
         {data ? (
           <>
             <CardCategory />
             <CardDisplay data={data} />
-            <Card />
-            <Card />
             <Card />
             <Card />
             <Card />
