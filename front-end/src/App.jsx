@@ -5,12 +5,12 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 
 
-function App() {
+function App() {  //Outlet mean child component (e.g. pages) under layout of sideNav
  
-  return (
+  return ( 
     <>
       <SideNav />
-      <div className="mx-auto"><Outlet/></div>
+      <div className="mx-auto"><Outlet/></div> 
       
 
       

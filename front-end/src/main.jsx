@@ -8,7 +8,7 @@ import MainStock from "./pages/MainStock/MainStock.jsx";
 import Branches from "./pages/Branches/Branches.jsx";
 import Notification from "./pages/Notification/Notification.jsx";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ //route aka path ex. /main for main stock this use from lib react-router-dom https://reactrouter.com/en/main/start/overview
   {
     path: "/",
     element: <App />,
