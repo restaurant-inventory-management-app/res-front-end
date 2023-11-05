@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 
 
-function App() {  //Outlet mean child component (e.g. pages) under layout of sideNav
+function App() {  
  
   return ( 
     <>

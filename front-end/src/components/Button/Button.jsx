@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './button.css'
 
-function Button({ title , fnc, icon, color }) { //title: title of button fnc: function of button icon: add / del color: white/black
+function Button({ title , fnc, icon, color }) { 
   return (
     <div
       className={color === "white" ? "button btn-white" : "button btn-black"}
