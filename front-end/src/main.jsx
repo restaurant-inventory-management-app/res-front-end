@@ -6,9 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page.jsx";
 import MainStock from "./pages/MainStock/MainStock.jsx";
 import Branches from "./pages/Branches/Branches.jsx";
-import Notification from "./pages/Notification/Notification.jsx";
+import History from "./pages/History/History.jsx";
 
-const router = createBrowserRouter([ //route aka path ex. /main for main stock this use from lib react-router-dom https://reactrouter.com/en/main/start/overview
+const router = createBrowserRouter([ 
   {
     path: "/",
     element: <App />,
@@ -19,7 +19,7 @@ const router = createBrowserRouter([ //route aka path ex. /main for main stock t
         element: <MainStock />,
       },
       { path: "branches", element: <Branches /> }, 
-      {path: 'notification', element: <Notification/>}
+      {path: 'History', element: <History/>}
     ],
   },
 ]);

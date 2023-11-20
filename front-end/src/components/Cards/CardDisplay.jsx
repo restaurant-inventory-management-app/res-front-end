@@ -3,7 +3,7 @@
 import Button from "../Button/Button";
 import "./card.css";
 
-export default function CardDisplay({data}) { // use for display fetched data currentlt use for display mock data in fomr front-end\src\pages\MainStock\MainStock.jsx
+export default function CardDisplay({data}) { 
   return (
     <div>
       <div className="card-com">
