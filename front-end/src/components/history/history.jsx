@@ -1,6 +1,6 @@
 import "./history.css";
 
-export default function history({data}) { 
+export default function History({data}) { 
     return (
         <div className="his1">
             <div className="histext">

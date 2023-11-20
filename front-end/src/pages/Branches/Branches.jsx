@@ -1,4 +1,4 @@
-import CardCategory1 from "../../components/Cards/CardCategory1";
+import CardCategoryDisplay from "../../components/Cards/CardCategoryDisplay";
 
 
 const Category = [
@@ -47,7 +47,7 @@ function Branches() { //suppose to display in each branches
     <h1>[Name's Branches]</h1>
     <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
         {Category.map((category, index) => (
-          <CardCategory1 key={index} data={category} />
+          <CardCategoryDisplay key={index} data={category} />
         ))}
     </section>
     </div>

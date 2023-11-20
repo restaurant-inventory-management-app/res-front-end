@@ -70,11 +70,11 @@ function SideNav() {
             </MenuItem>
             <MenuItem
               icon={<IoMdNotificationsOutline size={30} />}
-              component={<Link to="/History" />}
+              component={<Link to="/history" />}
             >
               History
             </MenuItem>
-            <SubMenu icon={<BsPerson size={30} />} slot label="Profile">
+            <SubMenu icon={<BsPerson size={30} />}  label="Profile">
               <MenuItem> Profile </MenuItem>
             </SubMenu>
             <MenuItem
@@ -85,7 +85,7 @@ function SideNav() {
             </MenuItem>
             <SubMenu
               icon={<MdOutlineHolidayVillage size={30} />}
-              slot
+              
               label="Branches"
             >
               <MenuItem>Siam Paragon</MenuItem>

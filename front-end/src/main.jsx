@@ -6,9 +6,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page.jsx";
 import MainStock from "./pages/MainStock/MainStock.jsx";
 import Branches from "./pages/Branches/Branches.jsx";
-import History from "./pages/History/History.jsx";
+import HistoryPage from "./pages/History/HistoryPage.jsx"
+import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
 
-const router = createBrowserRouter([ 
+const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
@@ -18,8 +19,9 @@ const router = createBrowserRouter([
         path: "main",
         element: <MainStock />,
       },
-      { path: "branches", element: <Branches /> }, 
-      {path: 'History', element: <History/>}
+      { path: "category/:categoryId", element: <CategoryPage /> },
+      { path: "branches", element: <Branches /> },
+      { path: "history", element: <HistoryPage /> },
     ],
   },
 ]);

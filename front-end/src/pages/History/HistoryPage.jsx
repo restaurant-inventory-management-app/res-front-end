@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import HistoryComponent from "../../components/history/history.jsx";
+import History from "../../components/History/History.jsx";
 
 const mockTransaction = {
   amount_after_change: 20,
@@ -40,7 +40,7 @@ const mock_history = [
 ];
 
 
-function History() {
+function HistoryPage() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function History() {
       <h1 className="text-center">History</h1>
       <div className="gap-5" style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '38px' }}>
       {mock_history.map((history, index) => (
-      <HistoryComponent key={index} data={history} />
+      <History key={index} data={history} />
       ))}
       </div>
     </div>
