@@ -1,63 +1,44 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import History from "../../components/History/History.jsx";
-
-const mockTransaction = {
-  amount_after_change: 20,
-  amount_before_change: 20,
-  category:"Dairy",
-  change_id: 73626,
-  item_id: 4,
-  time: "2023-11-20T09:00:40"
-};
-
-
-const mock_history = [
-  {
-    amount_after_change: 20,
-    category:"Dairy, Produce",
-    amount_before_change: 20,
-    change_id: 6,
-    item_id: 4,
-    time: "2023-11-20T09:00:40"
-    
-  },
-  {
-    amount_after_change: 20,
-    category:"Spices&Condiments",
-    amount_before_change: 20,
-    change_id: 5,
-    item_id: 4,
-    time: "2023-11-20T09:00:40"
-  },
-  {
-    amount_after_change: 20,
-    category:"Canned/Preserved,pices&Condiments",
-    amount_before_change: 30,
-    change_id: 4,
-    item_id: 4,
-    time: "2023-11-20T09:00:40"
-  },
-];
-
+import axios from "axios";
+import LoadingPage from "../LoadingPage/LoadingPage.jsx";
 
 function HistoryPage() {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setData(mock_history[0]);
+    axios.get('http://192.168.1.49:5000/api/v1/main_stock/transactions')
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching transaction data:", error);
+        setData([]); 
+      })
+      .finally(() => {
+        setLoading(false); 
+      });
   }, []);
 
   return (
-    <div>
-      <h1 className="text-center">History</h1>
-      <div className="gap-5" style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '38px' }}>
-      {mock_history.map((history, index) => (
-      <History key={index} data={history} />
-      ))}
-      </div>
+    <div className="container-lg">
+      <h1 className="text-center mb-3">History of Main Stock</h1>
+      {loading ? (
+        <LoadingPage />
+      ) : (
+        <div className="gap-2" style={{ display: 'inline-flex', flexDirection: 'column' }}>
+          {data && data.length > 0 ? (
+            data.map((history, index) => (
+              <History key={index} data={history} />
+            ))
+          ) : (
+            <p className="text-center">No transactions available.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
-export default History;
-
+export default HistoryPage;

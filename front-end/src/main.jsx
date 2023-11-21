@@ -4,8 +4,8 @@ import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error-page.jsx";
+import HistoryPage from './pages/HistoryPage/HistoryPage.jsx'
 import MainStock from "./pages/MainStockPage/MainStock.jsx";
-import HistoryPage from "./pages/HistoryPage/HistoryPage.jsx"
 import CategoryPage from "./pages/CategoryPage/CategoryPage.jsx";
 import BranchPage from "./pages/BranchPage/BranchPage.jsx";
 import ItemInBranchPage from "./pages/ItemInBranchPage/ItemInBranchPage.jsx";

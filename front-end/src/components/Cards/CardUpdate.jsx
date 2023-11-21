@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function CardUpdate({ data, branchId }) {
   const [buttonHidden, setButtonHidden] = useState(false);
-  const [quantity, setQuantity] = useState(1); // Initial quantity value
+  const [quantity, setQuantity] = useState(null); // Initial quantity value
   const [method, setMethod] = useState(null);
 
   const handleAddButtonClick = () => {
