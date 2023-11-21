@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import History from "../../components/History/History.jsx";
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage.jsx";

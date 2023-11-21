@@ -3,13 +3,15 @@ import Button from "../Button/Button";
 import "./card.css";
 import axios from "axios";
 import config from "../../../config.json";
+import {useNavigate, useParams} from 'react-router-dom'
 
 
 export default function CardUpdate({ data, branchId }) {
   const [buttonHidden, setButtonHidden] = useState(false);
   const [quantity, setQuantity] = useState(null); // Initial quantity value
   const [method, setMethod] = useState(null);
-
+  const navigate = useNavigate()
+  const {categoryId} = useParams()
   const handleAddButtonClick = () => {
     setButtonHidden(true);
     setMethod("request");
@@ -47,7 +49,7 @@ export default function CardUpdate({ data, branchId }) {
       .put(apiUrl, requestData)
       .then((response) => {
         console.log("API Response:", response.data);
-        window.location.reload();
+        navigate(`/branch/${branchId}/category/${categoryId}`)
       })
       .catch((error) => {
         console.error("API Error:", error);

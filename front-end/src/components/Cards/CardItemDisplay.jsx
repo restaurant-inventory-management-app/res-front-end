@@ -3,11 +3,13 @@ import Button from "../Button/Button";
 import axios from "axios";
 import { useState } from "react";
 import config from "../../../config.json";
+import {useNavigate} from 'react-router-dom'
 
 
-export default function CardItemDisplay({ data }) {
+export default function CardItemDisplay({ data, categoryId }) {
   const [buttonHidden, setButtonHidden] = useState(false);
   const [quantity, setQuantity] = useState(null);
+  const navigate = useNavigate()
 
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value, 10) || 1);
@@ -29,7 +31,7 @@ export default function CardItemDisplay({ data }) {
       )
       .then((response) => {
         console.log("API Response:", response.data);
-        window.location.reload();
+        navigate(`/category/${categoryId}`)
       })
       .catch((error) => {
         console.error("API Error:", error);

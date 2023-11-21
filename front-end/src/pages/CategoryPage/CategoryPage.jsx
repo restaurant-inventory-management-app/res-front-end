@@ -58,7 +58,7 @@ export default function CategoryPage() {
           <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
             <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
               {categoryData.map((item) => (
-                <CardItemDisplay key={item.item_id} data={item} />
+                <CardItemDisplay key={item.item_id} data={item} categoryId={categoryId} />
               ))}
             </section>
           </section>
