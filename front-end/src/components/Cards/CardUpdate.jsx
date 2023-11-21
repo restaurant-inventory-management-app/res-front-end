@@ -6,7 +6,7 @@ import axios from "axios";
 export default function CardUpdate({ data, branchId }) {
   const [buttonHidden, setButtonHidden] = useState(false);
   const [quantity, setQuantity] = useState(1); // Initial quantity value
-  const [method, setMethod] = useState("");
+  const [method, setMethod] = useState(null);
 
   const handleAddButtonClick = () => {
     setButtonHidden(true);
@@ -24,7 +24,7 @@ export default function CardUpdate({ data, branchId }) {
   };
 
   const handleQuantityChange = (event) => {
-    setQuantity(parseInt(event.target.value, 10) || 1); // Ensure the quantity is a positive integer
+    setQuantity(parseInt(event.target.value, 10) || 1); 
   };
 
   const handleSubmit = () => {
