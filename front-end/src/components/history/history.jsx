@@ -1,19 +1,42 @@
 import "./history.css";
 
-export default function history({data}) { 
-    return (
-        <div className="his1">
-            <div className="histext">
-                <h5>Transaction ID:  {data.change_id}</h5>
-                <div className="histext2">
-                    <h5>Item name:  {data.item_id}</h5>
-                    <h5>Category:  {data.category}</h5>
-                </div>
-                <div className="histex3">
-                    <h5>Amount changes:  {data.amount_after_change}</h5>
-                    <h5>Time stamp:  {data.time}</h5>
-                </div>
-            </div>
+export default function History({ data }) {
+  return (
+    <div className="container history" style={{ overflowWrap: "break-word" }}>
+      <p className="fw-bold m-0">
+        Transaction ID: <span>{data.transaction_id}</span>
+      </p>
+      <div className="row card card-history mx-auto" style={{ height: 170 }}>
+        <div className="col-6 my-auto">
+          <p className="fw-bold" style={{ textTransform: "uppercase" }}>
+            Type:{" "}
+            <span
+              style={{
+                color: data.change_type === "add" ? "green" : "red",
+              }}
+            >
+              {data.change_type}
+            </span>
+          </p>
+          <p className="fw-bold">
+            Item name: <span>{data.item_name}</span>
+          </p>
+          <p className="fw-bold">
+            Category: <span>{data.category_name}</span>
+          </p>
         </div>
-    );
-  }
+        <div className="col-6 my-auto">
+          <p className="fw-bold">
+            Amount changes:{" "}
+            <span>
+              {data.amount} {data.unit}
+            </span>
+          </p>
+          <p className="fw-bold">
+            Time stamp: <span>{data.time}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

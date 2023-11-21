@@ -1,14 +1,14 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 
 import { BiMenu } from "react-icons/bi";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsPerson } from "react-icons/bs";
 import { LiaBoxesSolid } from "react-icons/lia";
 import { MdOutlineHolidayVillage } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import {  useState } from "react";
+import { MdHistory } from "react-icons/md";
 
-function SideNav() {
+function SideNav({branches}) {
   const [toggle, setToggle] = useState(false);
   const [collapsed, setCollapsed] = useState(true);
 
@@ -17,7 +17,7 @@ function SideNav() {
   };
   const handleToggle = () => {
     setToggle(!toggle);
-    setCollapsed(false)
+    setCollapsed(false);
   };
 
   return (
@@ -30,7 +30,6 @@ function SideNav() {
           position: "absolute",
         }}
         onClick={handleToggle}
-        
       >
         <BiMenu size={30} />
       </div>
@@ -69,26 +68,26 @@ function SideNav() {
               Menu
             </MenuItem>
             <MenuItem
-              icon={<IoMdNotificationsOutline size={30} />}
-              component={<Link to="/History" />}
+              icon={<MdHistory  size={30} />}
+              component={<Link to="/history" />}
             >
               History
             </MenuItem>
-            <SubMenu icon={<BsPerson size={30} />} slot label="Profile">
-              <MenuItem> Profile </MenuItem>
-            </SubMenu>
             <MenuItem
               icon={<LiaBoxesSolid size={30} />}
-              component={<Link to="/main" />}
+              component={<Link to="" />}
             >
               Main Stock
             </MenuItem>
             <SubMenu
+              key="branches"
               icon={<MdOutlineHolidayVillage size={30} />}
-              slot
               label="Branches"
             >
-              <MenuItem>Siam Paragon</MenuItem>
+              {/* <MenuItem key="addBranch">Add Branch +</MenuItem> */}
+              {branches ? branches.map((branch) => (
+                <MenuItem key={branch.branch_id} component={<Link to={`/branch/${branch.branch_id}`} />} >{branch.branch_name}</MenuItem>
+              )): null}
             </SubMenu>
           </Menu>
         </Sidebar>

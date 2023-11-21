@@ -1,6 +1,6 @@
 import "./card.css";
 
-export default function CardCategory() { 
+export default function CardCategoryAdd() { 
   return (
     <div className="card-com pl-5" >
         <div className="card-body category" >

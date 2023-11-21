@@ -1,0 +1,16 @@
+.back-btn {
+    position: fixed;
+    left: 15%; 
+    max-width: 10%;
+    cursor: pointer;
+  }
+
+@media (max-width: 764px) {
+    .back-btn {
+        height: 35px;
+        top: 3px; 
+        left: 85%;
+    }
+    
+
+}
