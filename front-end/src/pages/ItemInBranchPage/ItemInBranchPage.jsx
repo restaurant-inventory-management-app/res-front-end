@@ -1,34 +1,30 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import CardItemDisplay from "../../components/Cards/CardItemDisplay";
-import "./CategoryPage.css";
-
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import CardUpdate from "../../components/Cards/CardUpdate";
 
-export default function CategoryPage() {
-  const { categoryId } = useParams();
-  const navigate = useNavigate();
-  const [categoryData, setCategoryData] = useState(null);
+export default function ItemInBranchPage() {
+  const { categoryId, branchId } = useParams();
+  const navigate = useNavigate()
+  const [itemsData, setItemsData] = useState(null);
 
   const handleBackClick = () => {
     navigate(-1);
   };
 
   useEffect(() => {
-    const url = `http://192.168.1.49:5000/api/v1/main_stock/category/${categoryId}`;
+    const url = `http://192.168.1.49:5000/api/v1/branch/${branchId}/category/${categoryId}/items`;
 
-    axios
-      .get(url)
-      .then((response) => {
-        setCategoryData(response.data);
-      })
-      .catch((error) => console.error("Error fetching  data:", error));
-  }, [categoryId]);
+    axios.get(url)
+    .then((response) => setItemsData(response.data))
+    .catch((error) => console.error("Error fetching data:", error));
 
+  }, [branchId, categoryId]);
   return (
-    <> 
-      {categoryData ? (
+    <>
+  
+      {itemsData ? (
         <div className="container-lg">
           <div>
             <svg
@@ -49,17 +45,16 @@ export default function CategoryPage() {
                 fill="#1E1E1E"
               />
             </svg>
-            <h1 className="text-center">{categoryData[0].category_name}</h1>
+            <h1 className="text-center">{itemsData.category_name}</h1>
           </div>
 
           <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
             <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
-              {categoryData.map((item) => (
-                <CardItemDisplay key={item.item_id} data={item} />
+              {itemsData.items.map((item) => (
+                <CardUpdate key={item.item_id} data={item} branchId={branchId} />
               ))}
             </section>
           </section>
-
         </div>
       ) : (
         <LoadingPage />

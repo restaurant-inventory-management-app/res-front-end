@@ -1,9 +1,8 @@
-/* eslint-disable react/prop-types */
 import './button.css'
 
 function Button({ title , fnc, icon, color }) { 
   return (
-    <div
+    <div style={{padding: 8}}
       className={color === "white" ? "button btn-white" : "button btn-black"}
       onClick={fnc}
     >
@@ -18,7 +17,7 @@ function Button({ title , fnc, icon, color }) {
           >
             <path
               d="M19 13.498H13V19.498H11V13.498H5V11.498H11V5.49805H13V11.498H19V13.498Z"
-              fill="#1E1E1E"
+              fill="#ffff"
             />
           </svg>
         ) : null}
