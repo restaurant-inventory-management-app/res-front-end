@@ -2,6 +2,8 @@ import "./card.css";
 import Button from "../Button/Button";
 import axios from "axios";
 import { useState } from "react";
+import config from "../../../config.json";
+
 
 export default function CardItemDisplay({ data }) {
   const [buttonHidden, setButtonHidden] = useState(false);
@@ -22,7 +24,7 @@ export default function CardItemDisplay({ data }) {
   const handleSubmit = () => {
     axios
       .put(
-        `http://192.168.1.49:5000/api/v1/main_stock/${data.item_id}/add_amount`,
+        `${config.API_URL}/api/v1/main_stock/${data.item_id}/add_amount`,
         { add_amount: quantity }
       )
       .then((response) => {

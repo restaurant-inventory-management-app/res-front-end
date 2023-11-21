@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import History from "../../components/History/History.jsx";
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage.jsx";
+import config from "../../../config.json";
 
 function HistoryPage() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://192.168.1.49:5000/api/v1/main_stock/transactions')
+    axios.get(`${config.API_URL}/api/v1/main_stock/transactions`)
       .then((response) => {
         setData(response.data);
       })
@@ -33,7 +34,7 @@ function HistoryPage() {
               <History key={index} data={history} />
             ))
           ) : (
-            <p className="text-center">No transactions available.</p>
+            <p className="d-block text-center">No transactions available.</p>
           )}
         </div>
       )}

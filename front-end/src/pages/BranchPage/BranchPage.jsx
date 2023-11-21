@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import CardCategoryDisplay from "../../components/Cards/CardCategoryDisplay";
+import config from "../../../config.json";
 
 
 function BranchPage() { //suppose to display in each branches
@@ -11,8 +12,8 @@ function BranchPage() { //suppose to display in each branches
   const [branchData, setBranchData] = useState(null)
 
   useEffect(() => {
-    const url = "http://192.168.1.49:5000/api/v1/category";
-    const url2 = `http://192.168.1.49:5000/api/v1/branch/${branchId}`
+    const url = `${config.API_URL}/api/v1/category`;
+    const url2 = `${config.API_URL}/api/v1/branch/${branchId}`
     axios
       .get(url)
       .then((response) => {
