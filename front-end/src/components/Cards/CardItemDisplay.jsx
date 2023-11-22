@@ -31,7 +31,7 @@ export default function CardItemDisplay({ data, categoryId }) {
       )
       .then((response) => {
         console.log("API Response:", response.data);
-        navigate(`/category/${categoryId}`)
+        window.location.reload();
       })
       .catch((error) => {
         console.error("API Error:", error);

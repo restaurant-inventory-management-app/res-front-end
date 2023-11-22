@@ -49,7 +49,7 @@ export default function CardUpdate({ data, branchId }) {
       .put(apiUrl, requestData)
       .then((response) => {
         console.log("API Response:", response.data);
-        navigate(`/branch/${branchId}/category/${categoryId}`)
+        window.location.reload();
       })
       .catch((error) => {
         console.error("API Error:", error);
