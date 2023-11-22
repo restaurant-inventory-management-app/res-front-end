@@ -1,7 +1,7 @@
 import "./card.css";
 import Button from "../Button/Button";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import config from "../../../config.json";
 import {useNavigate} from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom'
 export default function CardItemDisplay({ data, categoryId }) {
   const [buttonHidden, setButtonHidden] = useState(false);
   const [quantity, setQuantity] = useState(null);
-  const navigate = useNavigate()
+
 
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value, 10) || 1);
@@ -22,6 +22,8 @@ export default function CardItemDisplay({ data, categoryId }) {
   const handleAddBtn = () => {
     setButtonHidden(true);
   };
+
+
 
   const handleSubmit = () => {
     axios
