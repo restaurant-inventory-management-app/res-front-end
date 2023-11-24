@@ -5,6 +5,9 @@ import "./CategoryPage.css";
 
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import config from "../../../config.json";
+
+
 
 export default function CategoryPage() {
   const { categoryId } = useParams();
@@ -16,7 +19,7 @@ export default function CategoryPage() {
   };
 
   useEffect(() => {
-    const url = `http://192.168.1.49:5000/api/v1/main_stock/category/${categoryId}`;
+    const url = `${config.API_URL}/api/v1/main_stock/category/${categoryId}`;
 
     axios
       .get(url)
@@ -55,7 +58,7 @@ export default function CategoryPage() {
           <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
             <section className="my-3 d-flex flex-wrap gap-5 justify-content-center justify-content-xl-start">
               {categoryData.map((item) => (
-                <CardItemDisplay key={item.item_id} data={item} />
+                <CardItemDisplay key={item.item_id} data={item} categoryId={categoryId} />
               ))}
             </section>
           </section>

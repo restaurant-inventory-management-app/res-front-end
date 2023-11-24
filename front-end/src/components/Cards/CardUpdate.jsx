@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "../Button/Button";
 import "./card.css";
 import axios from "axios";
+import config from "../../../config.json";
+import {useNavigate, useParams} from 'react-router-dom'
+
 
 export default function CardUpdate({ data, branchId }) {
   const [buttonHidden, setButtonHidden] = useState(false);
   const [quantity, setQuantity] = useState(null); // Initial quantity value
   const [method, setMethod] = useState(null);
-
   const handleAddButtonClick = () => {
     setButtonHidden(true);
     setMethod("request");
@@ -32,12 +34,12 @@ export default function CardUpdate({ data, branchId }) {
     var requestData;
 
     if (method === "request") {
-      apiUrl = `http://192.168.1.49:5000/api/v1/branch/${branchId}/item/${data.item_id}/request_from_main`;
+      apiUrl = `${config.API_URL}/api/v1/branch/${branchId}/item/${data.item_id}/request_from_main`;
       requestData = { change_amount: quantity };
     }
 
     if (method === "update") {
-      apiUrl = `http://192.168.1.49:5000/api/v1/branch/${branchId}/item/${data.item_id}/update_amount`;
+      apiUrl = `${config.API_URL}/api/v1/branch/${branchId}/item/${data.item_id}/update_amount`;
       requestData = { new_amount: quantity };
     }
 

@@ -3,12 +3,14 @@ import "./App.css";
 import SideNav from "./components/SideNav/SideNav";
 import { Outlet } from "react-router-dom";
 import axios from 'axios'
+import config from "../config.json";
+
 
 
 function App() {  
   const [branches, setBranches] = useState(null)
   useEffect(()=>{
-    const url = 'http://192.168.1.49:5000/api/v1/branch'
+    const url = `${config.API_URL}/api/v1/branch`
     axios.get(url)
     .then((response) => {
       setBranches(response.data);

@@ -3,12 +3,14 @@ import CardCategory1 from "../../components/Cards/CardCategoryDisplay";
 
 import axios from "axios";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import config from '../../../config.json'
+
 
 function MainStock() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const url = "http://192.168.1.49:5000/api/v1/category";
+    const url = `${config.API_URL}/api/v1/category`;
     axios
       .get(url)
       .then((response) => {

@@ -3,6 +3,8 @@ import LoadingPage from "../LoadingPage/LoadingPage";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CardUpdate from "../../components/Cards/CardUpdate";
+import config from "../../../config.json";
+
 
 export default function ItemInBranchPage() {
   const { categoryId, branchId } = useParams();
@@ -14,7 +16,7 @@ export default function ItemInBranchPage() {
   };
 
   useEffect(() => {
-    const url = `http://192.168.1.49:5000/api/v1/branch/${branchId}/category/${categoryId}/items`;
+    const url = `${config.API_URL}/api/v1/branch/${branchId}/category/${categoryId}/items`;
 
     axios.get(url)
     .then((response) => setItemsData(response.data))
